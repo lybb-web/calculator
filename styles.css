@@ -1,0 +1,15 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    border: 5px solid black;
+    height: 720px;
+    width: 480px;
+    border-radius: 12px;
+
+}
