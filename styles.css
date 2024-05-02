@@ -17,15 +17,22 @@ body {
 #calculator-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 #display {
-    width: auto;
     background-color: gray;
     margin: 16px auto;
     width: 400px;
     height: 180px;
+}
+
+#delete-operations {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 16px;
+    
 }
 
 #digits {
@@ -33,14 +40,15 @@ body {
     flex-direction: row;
     flex-wrap: wrap-reverse;
     justify-content: center;
-    margin: 8px;
-    padding: 16px;
-    gap: 16px;
+    margin: 0 0 0 40px;
+    /* padding: 16px; */
+    width: 293.334px;
+    gap: 26.6667px;
 }
 
-.digit {
-    height: 100px;
-    width: 100px;
+button {
+    height: 80px;
+    width: 80px;
 }
 
 #number-1 {
