@@ -27,11 +27,18 @@ body {
     height: 180px;
 }
 
+#buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 #delete-operations {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 16px;
+    gap: 26.6667px;
+    margin: 0 0 26.6667px 40px;
+    width: 293.334px;
     
 }
 
@@ -49,6 +56,13 @@ body {
 button {
     height: 80px;
     width: 80px;
+}
+
+#right-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 26.6667px;
+    gap: 26.6667px;
 }
 
 #number-1 {
