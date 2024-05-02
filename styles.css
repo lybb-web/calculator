@@ -25,6 +25,7 @@ body {
     margin: 16px auto;
     width: 400px;
     height: 180px;
+    border-radius: 12px;
 }
 
 #buttons {
@@ -42,6 +43,10 @@ body {
     
 }
 
+.delete-operation {
+    background-color: turquoise;
+}
+
 #digits {
     display: flex;
     flex-direction: row;
@@ -51,11 +56,21 @@ body {
     /* padding: 16px; */
     width: 293.334px;
     gap: 26.6667px;
+    font-weight: bold;
 }
+
+button.digit {
+    font-weight: bold;
+}
+
+
 
 button {
     height: 80px;
     width: 80px;
+    font-size: 24px;
+    border: none;
+    border-radius: 24px;
 }
 
 #right-buttons {
@@ -63,6 +78,10 @@ button {
     flex-wrap: wrap;
     margin: 0 0 0 26.6667px;
     gap: 26.6667px;
+}
+
+.operator {
+    background-color: darkgray;
 }
 
 #number-1 {
