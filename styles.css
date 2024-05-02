@@ -20,7 +20,33 @@ body {
     align-items: flex-start;
 }
 
+#display {
+    width: auto;
+    background-color: gray;
+    margin: auto;
+    width: 400px;
+    height: 180px;
+}
+
+#digits {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 8px;
+    padding: 16px;
+    gap: 16px;
+}
+
+.digit {
+    height: 100px;
+    width: 100px;
+}
+
 #number-1 {
     border: 1px solid black;
+}
+
+div {
+    /* border: 5px solid green; */
 }
 
