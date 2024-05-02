@@ -23,7 +23,7 @@ body {
 #display {
     width: auto;
     background-color: gray;
-    margin: auto;
+    margin: 16px auto;
     width: 400px;
     height: 180px;
 }
@@ -31,7 +31,8 @@ body {
 #digits {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
     margin: 8px;
     padding: 16px;
     gap: 16px;
