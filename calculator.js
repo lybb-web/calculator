@@ -1,20 +1,55 @@
 
 
+let operands = [];
+populateDisplay();
 
 
-const display = document.querySelector("#display")
-
-
-const num = document.querySelector("#digits");
-num.addEventListener("click", (e) =>
+function populateDisplay()
 {
-    console.log(e.target);
-    console.log(e.target.textContent);
-    if (!isNaN(e.target.textContent))
+    const display = document.querySelector("#display")
+
+
+    const num = document.querySelector("#digits");
+    num.addEventListener("click", (e) =>
     {
-        display.textContent += e.target.textContent;
-    }
-});
+        console.log(e.target);
+        console.log(e.target.textContent);
+        if (!isNaN(e.target.textContent))
+        {
+            
+            display.textContent += e.target.textContent;
+            operands.push(e.target.textContent);
+        }
+        else if (e.target.textContent == "+/-")
+        {
+            
+        }
+        console.log(operands);
+    });
+ 
+    const opr = document.querySelector("#right-buttons");
+    opr.addEventListener("click", (e) =>
+    {
+        const op = e.target.textContent;
+        if (op != "=")
+        {
+
+            if (op == "-" && operands.length == 0 )
+            {
+                display.textContent += op;
+                operands.push(op);
+            }
+            
+        }
+    });
+
+    
 
 
-console.log("h");
+}
+
+// function parseString(displayed)
+// {
+//     console.log(displayed);
+//     return displayed.split(/[+\-*\/]/);
+// }
