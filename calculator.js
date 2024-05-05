@@ -18,9 +18,8 @@ function populateDisplay()
         {
             
             display.textContent += e.target.textContent;
-            if (!isNaN(operands[operands.length - 1]))
+            if (!isNaN(operands[operands.length - 1])) //last element in operands is a number
             {
-                console.log("It's a number!");
                 operands[operands.length-1] += e.target.textContent;
             }
             else
@@ -48,7 +47,16 @@ function populateDisplay()
                 display.textContent += op;
                 operands.push(op);
             }
+            else if (!isNaN(operands[operands.length - 1])) //add operator if last element in operands is a number
+            {
+                display.textContent += op;
+                operands.push(op);
+            }
             
+        }
+        else
+        {
+            operate(operands[0], operands[1], operands[2]);
         }
     });
 
@@ -57,9 +65,14 @@ function populateDisplay()
 
 }
 
-function addToOperands(text)
+function operate(addendOne, operator, addendTwo)
 {
-
+    numOne = Number(addendOne);
+    numTwo = Number(addendTwo);
+    if (operator == "+")
+    {
+        console.log(numOne + numTwo);
+    }
 }
 
 // function parseString(displayed)
