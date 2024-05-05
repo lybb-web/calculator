@@ -26,6 +26,11 @@ body {
     width: 400px;
     height: 180px;
     border-radius: 12px;
+    font-size: 36px;
+    display: flex;
+
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #buttons {
