@@ -32,6 +32,10 @@ function populateDisplay()
         {
             
         }
+        else if (e.target.textContent == ".")
+        {
+
+        }
         console.log(operands);
     });
  
@@ -42,7 +46,7 @@ function populateDisplay()
         if (op != "=")
         {
 
-            if (op == "-" && operands.length == 0 )
+            if (op == "-" && (operands.length == 0 || isNaN(operands[operands.length-1])))
             {
                 display.textContent += op;
                 operands.push(op);
@@ -56,7 +60,13 @@ function populateDisplay()
         }
         else
         {
-            operate(operands[0], operands[1], operands[2]);
+            checkNegativeSymbols();
+            console.log(operands);
+            if (checkOperands())
+            {
+                operate(operands[0], operands[1], operands[2]);
+            }
+            
         }
     });
 
@@ -69,10 +79,47 @@ function operate(addendOne, operator, addendTwo)
 {
     numOne = Number(addendOne);
     numTwo = Number(addendTwo);
+    switch (operator)
+    {
+        case "+":
+            console.log(numOne + numTwo);
+            break;
+        case "-":
+            console.log(numOne - numTwo);
+            break;
+        case "*":
+            console.log(numOne * numTwo);
+            break;
+        case "/":
+            console.log(numOne / numTwo);
+            break;
+    }
     if (operator == "+")
     {
         console.log(numOne + numTwo);
     }
+}
+
+function checkNegativeSymbols()
+{
+    if (operands.length > 3)
+    {
+        for (let i = 0; i < operands.length-1; i++)
+        {
+            if (operands[i] == "-" && operands[i+1])
+            {
+                operands[i] += operands[i+1];
+                operands.splice(i+1, 1);
+            }
+            
+        }
+    }
+}
+
+function checkOperands()
+{
+    return (!isNaN(operands[0]) && !isNaN(operands[2]))
+    
 }
 
 // function parseString(displayed)
