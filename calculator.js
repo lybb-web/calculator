@@ -18,7 +18,16 @@ function populateDisplay()
         {
             
             display.textContent += e.target.textContent;
-            operands.push(e.target.textContent);
+            if (!isNaN(operands[operands.length - 1]))
+            {
+                console.log("It's a number!");
+                operands[operands.length-1] += e.target.textContent;
+            }
+            else
+            {
+                operands.push(e.target.textContent);
+            }
+            
         }
         else if (e.target.textContent == "+/-")
         {
@@ -45,6 +54,11 @@ function populateDisplay()
 
     
 
+
+}
+
+function addToOperands(text)
+{
 
 }
 
