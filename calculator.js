@@ -14,11 +14,11 @@ function populateDisplay()
     {
         console.log(e.target);
         console.log(e.target.textContent);
-        if (!isNaN(e.target.textContent))
+        if (!isNaN(e.target.textContent) || e.target.textContent == ".")
         {
             
             display.textContent += e.target.textContent;
-            if (!isNaN(operands[operands.length - 1])) //last element in operands is a number
+            if (!isNaN(operands[operands.length - 1]) || operands[operands.length - 1] == ".") //last element in operands is a number
             {
                 operands[operands.length-1] += e.target.textContent;
             }
@@ -64,11 +64,39 @@ function populateDisplay()
             console.log(operands);
             if (checkOperands())
             {
-                operate(operands[0], operands[1], operands[2]);
+                
+                let result = operate(operands[0], operands[1], operands[2]);
+                display.textContent = result;
+                operands.length = 1;
+                operands[0] = String(result);
             }
             
         }
     });
+
+    const blueButtons = document.querySelector("#delete-operations");
+    blueButtons.addEventListener("click", (e) =>
+    {
+        if (e.target.textContent == "AC")
+        {
+            display.textContent = "";
+            operands.length = 0;
+        }
+        else if (e.target.textContent == "CE")
+        {
+            console.log(operands);
+            if (operands[operands.length - 1].length > 1)
+            {
+                operands[operands.length-1] = operands[operands.length-1].substring(0, operands[operands.length-1].length - 1)
+            }
+            else
+            {
+                operands.pop();
+            }
+            display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+            console.log(operands);
+        }
+    })
 
     
 
@@ -82,22 +110,15 @@ function operate(addendOne, operator, addendTwo)
     switch (operator)
     {
         case "+":
-            console.log(numOne + numTwo);
-            break;
+            return numOne + numTwo;
         case "-":
-            console.log(numOne - numTwo);
-            break;
+            return numOne - numTwo;
         case "*":
-            console.log(numOne * numTwo);
-            break;
+            return numOne * numTwo;
         case "/":
-            console.log(numOne / numTwo);
-            break;
+            return numOne / numTwo;
     }
-    if (operator == "+")
-    {
-        console.log(numOne + numTwo);
-    }
+    
 }
 
 function checkNegativeSymbols()
@@ -121,6 +142,9 @@ function checkOperands()
     return (!isNaN(operands[0]) && !isNaN(operands[2]))
     
 }
+
+console.log("IS THIS A NUMBE????")
+console.log(!isNaN(-9.));
 
 // function parseString(displayed)
 // {
