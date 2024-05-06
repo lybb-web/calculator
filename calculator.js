@@ -12,8 +12,7 @@ function populateDisplay()
     const num = document.querySelector("#digits");
     num.addEventListener("click", (e) =>
     {
-        console.log(e.target);
-        console.log(e.target.textContent);
+        
         if (!isNaN(e.target.textContent) || e.target.textContent == ".")
         {
             
@@ -30,13 +29,15 @@ function populateDisplay()
         }
         else if (e.target.textContent == "+/-")
         {
-            
+            console.log(operands);
+            if (!isNaN(operands[operands.length - 1]) )
+            {
+                operands[operands.length - 1] = String(Number(operands[operands.length-1]) * -1);
+                display.textContent = operands.join("");
+            }
         }
-        else if (e.target.textContent == ".")
-        {
-
-        }
-        console.log(operands);
+        checkNegativeSymbols();
+        
     });
  
     const opr = document.querySelector("#right-buttons");
@@ -46,8 +47,7 @@ function populateDisplay()
         if (op != "=")
         {
 
-            checkNegativeSymbols();
-            console.log(operands);
+            // checkNegativeSymbols();
             if (checkOperands())
             {
                 
@@ -71,8 +71,7 @@ function populateDisplay()
         }
         else
         {
-            checkNegativeSymbols();
-            console.log(operands);
+            // checkNegativeSymbols();
             if (checkOperands())
             {
                 
@@ -83,6 +82,7 @@ function populateDisplay()
             }
             
         }
+        checkNegativeSymbols();
     });
 
     const blueButtons = document.querySelector("#delete-operations");
@@ -95,7 +95,6 @@ function populateDisplay()
         }
         else if (e.target.textContent == "CE")
         {
-            console.log(operands);
             if (operands[operands.length - 1].length > 1)
             {
                 operands[operands.length-1] = operands[operands.length-1].substring(0, operands[operands.length-1].length - 1)
@@ -105,9 +104,10 @@ function populateDisplay()
                 operands.pop();
             }
             display.textContent = display.textContent.substring(0, display.textContent.length - 1);
-            console.log(operands);
         }
     })
+
+    
 
     
 
