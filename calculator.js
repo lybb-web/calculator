@@ -46,6 +46,17 @@ function populateDisplay()
         if (op != "=")
         {
 
+            checkNegativeSymbols();
+            console.log(operands);
+            if (checkOperands())
+            {
+                
+                let result = operate(operands[0], operands[1], operands[2]);
+                display.textContent = result;
+                operands.length = 1;
+                operands[0] = String(result);
+            }
+
             if (op == "-" && (operands.length == 0 || isNaN(operands[operands.length-1])))
             {
                 display.textContent += op;
@@ -127,7 +138,7 @@ function checkNegativeSymbols()
     {
         for (let i = 0; i < operands.length-1; i++)
         {
-            if (operands[i] == "-" && operands[i+1])
+            if (operands[i] == "-" && !isNaN(operands[i+1]))
             {
                 operands[i] += operands[i+1];
                 operands.splice(i+1, 1);
