@@ -36,6 +36,7 @@ function populateDisplay()
                 display.textContent = operands.join("");
             }
         }
+        
         checkNegativeSymbols();
         
     });
@@ -104,6 +105,37 @@ function populateDisplay()
                 operands.pop();
             }
             display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+        }
+        else if (e.target.textContent = "%")
+        {
+            console.log(operands);
+            if (operands.length == 1 && !isNaN(operands[0]))
+            {
+                display.textContent = String(Number(operands[0]) * 0.001);
+                operands[0] = display.textContent;
+            }
+            else if (operands.length == 3 && !isNaN(operands[2]))
+            {
+                let percentage = (Number(operands[2]) * 0.01);
+                let base = Number(operands[0]);
+                let result;
+                if (operands[1] != "*")
+                {
+                    result = operate(base, operands[1], percentage * base);
+                    
+                }
+                else
+                {
+                    result = String(percentage * base);
+                    
+                }
+                display.textContent = result;
+                operands.length = 1;
+                operands[0] = String(result);
+                
+                
+                
+            }
         }
     })
 
